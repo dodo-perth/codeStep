@@ -1,0 +1,12 @@
+.code-highlighter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.highlight-line {
+  background: rgba(255, 255, 0, 0.2);
+  transition: background 0.3s;
+}
+
+/* 추가 스타일... */
