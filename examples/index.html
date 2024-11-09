@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Highlighter Demo</title>
+    <link href="../dist/code-highlighter.css" rel="stylesheet" />
+    <script src="../dist/code-highlighter.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="code-highlighter" data-language="javascript" data-filename="Example.js">
+function fetchUserData(userId) {
+    // [1] API 엔드포인트를 설정합니다
+    const baseUrl = 'https://api.example.com';
+    const endpoint = `/users/${userId}`;
+    
+    // [2] fetch 옵션을 구성합니다
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    
+    // [3] API 요청을 보냅니다
+    return fetch(baseUrl + endpoint, options)
+        .then(response => {
+            // [4] 응답 상태를 확인합니다
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // [5] 데이터를 처리합니다
+            console.log('User data:', data);
+            return data;
+        })
+        .catch(error => {
+            // [6] 에러를 처리합니다
+            console.error('Error:', error);
+            throw error;
+        });
+}</div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const highlighter = new CodeHighlighter('.code-highlighter');
+            highlighter.init();
+        });
+    </script>
+</body>
+</html> 
