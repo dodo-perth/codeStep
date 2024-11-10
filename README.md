@@ -1,23 +1,23 @@
 # Code Step Highlighter
 
-코드 설명을 단계별로 하이라이트하며 보여주는 JavaScript 라이브러리
+A JavaScript library for step-by-step code highlighting and explanation, inspired by Apple's tutorial style.
 
-## 설치
+## Installation
 
 ```bash
 npm install code-step-highlighter
 ```
 
-## 사용법
+## Usage
 
-HTML에서 직접 사용:
+Direct usage in HTML:
 
 ```html
-<div class="code-highlighter" data-language="javascript">
+<div class="code-highlighter" data-language="javascript" data-filename="Example.js">
   function example() {
-    const a = 1; // [1]
-    const b = 2; // [2]
-    return a + b; // [3]
+    const a = 1; // [1] Initialize first variable
+    const b = 2; // [2] Initialize second variable
+    return a + b; // [3] Return the sum
   }
 </div>
 
@@ -27,7 +27,7 @@ HTML에서 직접 사용:
 </script>
 ```
 
-모듈로 사용:
+Using as a module:
 
 ```javascript
 import CodeHighlighter from 'code-step-highlighter';
@@ -36,27 +36,48 @@ const highlighter = new CodeHighlighter('#my-code');
 highlighter.init();
 ```
 
-## 설정 옵션
+## Configuration Options
 
 ```javascript
 const options = {
-  theme: 'dark', // 테마 (dark/light)
-  lineNumbers: true, // 라인 번호 표시
-  highlightColor: '#ffeb3b', // 하이라이트 색상
-  stepDelay: 1000 // 단계별 딜레이 (ms)
+  theme: 'light',          // Theme (light/dark)
+  lineNumbers: true,       // Show line numbers
+  highlightColor: '#007AFF', // Highlight color
+  fileName: 'Example.js',  // File name to display
+  layout: 'horizontal',    // Layout orientation (horizontal/vertical)
+  explanationPosition: 'left' // Explanation panel position (left/right)
 };
 
 const highlighter = new CodeHighlighter('.code-highlighter', options);
 ```
 
-## 스타일 커스터마이징
+## Features
 
-CSS 변수를 통해 스타일을 커스터마이징할 수 있습니다:
+- Apple-style tutorial layout
+- Smooth scroll-based step navigation
+- Syntax highlighting with Prism.js
+- Customizable themes and styles
+- Responsive design
+- File name display
+- Line numbers
+- Step-by-step code explanation
+
+## Customizing Styles
+
+You can customize styles using CSS variables:
 
 ```css
 .code-highlighter {
-  --highlight-color: #ffeb3b;
-  --background-color: #1e1e1e;
-  --text-color: #d4d4d4;
+  --highlight-color: rgba(0, 122, 255, 0.1);
+  --background-color: #ffffff;
+  --text-color: #1d1d1f;
 }
 ```
+
+## Browser Support
+
+Supports all modern browsers (Chrome, Firefox, Safari, Edge)
+
+## License
+
+MIT License
